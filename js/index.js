@@ -6,15 +6,17 @@ $(function(){
 	}
 	var sloe=GetQueryString("openid");
 	var id=GetQueryString("id");
+	var imgUrl=GetQueryString("src");
 	$('.albumBtn').click(function(){
 		window.location.href="albumContent.html"
 	})
 	$('.tourismBtn').click(function(){
 		window.location.href="qianshi.html"
 	})
-	$('.album_box_box').click(function(){
-		var id=$(this).parent().attr("id");
-		window.location.href="saveAlbum.html?id="+id;
+	$('.album_box_box .personalImg').click(function(){
+		var id=$(this).parent().parent().attr("id");
+		var src=$(this).attr("src");
+		window.location.href="saveAlbum.html?id="+id+"&src="+src;
 	})
 	$('.back').click(function(){
 		window.location.href="index.html"
@@ -23,7 +25,7 @@ $(function(){
 		window.location.href="albumContent.html"
 	})
 	$('.back3').click(function(){
-		window.location.href="saveAlbum.html"
+		window.location.href="index.html"
 	})
 	$('.saveBtn').click(function(){
 		$('.album_bg').css('display','block');
@@ -35,7 +37,8 @@ $(function(){
 		$('.qianshi_bg').css('display','block');
 	})
 	if(id){
-		$(".albumTips img").attr("src",'./images/m0'+id+'.png')
+		$(".albumTips img").attr("src",'./images/m0'+id+'.png');
+		$(".albumImg img").attr("src",imgUrl);
 	}
 	$.ajax({
 		url: './php/getphotos.php',
@@ -61,13 +64,13 @@ $(function(){
 				}
 			}) ; */
 			var title = "夜书纪念册";
-			var myurl = "http://diy-haier.highset.cn/index.jsp";
+			var myurl = "https://www.baidu.com/";
 			//分享给朋友
 			wx.onMenuShareAppMessage({
 				title : title, // 分享标题
-				desc : '海尔定制母婴家电，让你魔法加身，搞定养娃的大问题！', // 分享描述
+				desc : '百度人工智能', // 分享描述
 				link : myurl, // 分享链接
-				imgUrl : 'http://diy-haier.highset.cn/fx.jpg', // 分享图标
+				imgUrl : 'https://image.yunduoketang.com/headpic/34926/20190312/e0db50a4-ead9-45e9-866f-7e2999859405.png', // 分享图标
 				type : 'link', // 分享类型,music、video或link，不填默认为link
 				success : function() {
 					// 用户确认分享后执行的回调函数
@@ -80,7 +83,7 @@ $(function(){
 			wx.onMenuShareTimeline({
 				title : title, // 分享标题
 				link : myurl, // 分享链接
-				imgUrl : 'http://diy-haier.highset.cn/fx.jpg', // 分享图标
+				imgUrl : 'https://image.yunduoketang.com/headpic/34926/20190312/e0db50a4-ead9-45e9-866f-7e2999859405.png', // 分享图标
 				success : function() {
 					// 用户确认分享后执行的回调函数
 				},
@@ -90,5 +93,44 @@ $(function(){
 			});
 		})
 		$('.qianshi_bg').css('display','none');
+	})
+	$(".shareBtn").click(function(){
+		wx.ready(function() {
+
+			/*  wx.checkJsApi({
+				jsApiList: ['onMenuShareAppMessage'],
+				success:function(res){
+					alert(res.checkResult.chooseImage);
+				}
+			}) ; */
+			var title = "夜书纪念册";
+			var myurl = "https://www.baidu.com/";
+			//分享给朋友
+			wx.onMenuShareAppMessage({
+				title : title, // 分享标题
+				desc : '百度人工智能', // 分享描述
+				link : myurl, // 分享链接
+				imgUrl : 'https://image.yunduoketang.com/headpic/34926/20190312/e0db50a4-ead9-45e9-866f-7e2999859405.png', // 分享图标
+				type : 'link', // 分享类型,music、video或link，不填默认为link
+				success : function() {
+					// 用户确认分享后执行的回调函数
+				},
+				cancel : function() {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+	
+			wx.onMenuShareTimeline({
+				title : title, // 分享标题
+				link : myurl, // 分享链接
+				imgUrl : 'https://image.yunduoketang.com/headpic/34926/20190312/e0db50a4-ead9-45e9-866f-7e2999859405.png', // 分享图标
+				success : function() {
+					// 用户确认分享后执行的回调函数
+				},
+				cancel : function() {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+		})
 	})
 })

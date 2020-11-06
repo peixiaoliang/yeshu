@@ -116,10 +116,13 @@ body{
     background:url(../images/tuBg.png) no-repeat;
     background-size: 100% 100%;
     float: left;
+    text-align: center;
 }
 .album_box_box img{
-    width: 4.8rem;
-    height: 2.6rem;
+    width: auto;
+    height: auto;
+    max-width: 4.8rem;
+    max-height: 2.6rem;
 }
 .album_box_box:nth-of-type(2n){
     margin-left: 0.25rem;
@@ -139,6 +142,12 @@ body{
   width: 100%;
   text-align: center;
   margin-top: 0.8rem;
+}
+.albumImg img{
+  max-width: 7.2rem;
+  max-height: 4rem;
+  width: auto;
+  height: auto;
 }
 .albumTips{
   text-align: center;
