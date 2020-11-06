@@ -50,5 +50,45 @@ $(function(){
 				$(".imgBox"+i).find(".album_box_box").eq(1).find("img").attr("src",element["img2"])
 			}
 		}
+	});
+	$(".share_btn").click(function(){
+		wx.ready(function() {
+
+			/*  wx.checkJsApi({
+				jsApiList: ['onMenuShareAppMessage'],
+				success:function(res){
+					alert(res.checkResult.chooseImage);
+				}
+			}) ; */
+			var title = "夜书纪念册";
+			var myurl = "http://diy-haier.highset.cn/index.jsp";
+			//分享给朋友
+			wx.onMenuShareAppMessage({
+				title : title, // 分享标题
+				desc : '海尔定制母婴家电，让你魔法加身，搞定养娃的大问题！', // 分享描述
+				link : myurl, // 分享链接
+				imgUrl : 'http://diy-haier.highset.cn/fx.jpg', // 分享图标
+				type : 'link', // 分享类型,music、video或link，不填默认为link
+				success : function() {
+					// 用户确认分享后执行的回调函数
+				},
+				cancel : function() {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+	
+			wx.onMenuShareTimeline({
+				title : title, // 分享标题
+				link : myurl, // 分享链接
+				imgUrl : 'http://diy-haier.highset.cn/fx.jpg', // 分享图标
+				success : function() {
+					// 用户确认分享后执行的回调函数
+				},
+				cancel : function() {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+		})
+		$('.qianshi_bg').css('display','none');
 	})
 })

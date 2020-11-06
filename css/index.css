@@ -333,13 +333,13 @@ body{
 }
 .qianshiContent .point12{
   position: absolute;
-  left: 2.6rem;
-  top: 3.6rem;
+  left: 3.3rem;
+  top: 4.4rem;
 }
 .qianshiContent .point13{
   position: absolute;
-  left: 3.3rem;
-  top: 4.4rem;
+  left: 2.6rem;
+  top: 3.6rem;
 }
 .qianshiContent .point14{
   position: absolute;
@@ -384,6 +384,7 @@ body{
   position: absolute;
   right: 1.8rem;
   top: 7.2rem;
+  display: none;
 }
 .qianshiContent .pointText7{
   position: absolute;
@@ -423,8 +424,8 @@ body{
 }
 .qianshiContent .pointText13{
   position: absolute;
-  left: 2.95rem;
-  top: 3.6rem;
+  left: 2.35rem;
+  top: 3.2rem;
   display: none;
 }
 .qianshiContent .pointText14{
